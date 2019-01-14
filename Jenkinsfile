@@ -3,10 +3,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''bat \'gradle build\'
-
-
-bat \'uploadArchives\''''
+        bat(script: 'gradle build ', returnStatus: true, returnStdout: true)
+        bat(script: 'gradle  uploadArchives', returnStatus: true, returnStdout: true)
       }
     }
   }
